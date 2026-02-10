@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LiteFaucetBot – Ad Verification</title>
+
+  <!-- Monetag Rewarded Interstitial SDK -->
+  <script
+    src="//libtl.com/sdk.js"
+    data-zone="10589913"
+    data-sdk="show_10589913">
+  </script>
+</head>
+
+<body style="font-family:Arial; text-align:center; padding:30px">
+  <h2>🔔 Watch Ad to Claim Reward</h2>
+  <p>Please complete the ad to unlock your Litecoin reward.</p>
+
+  <button onclick="showAdAndVerify()" style="padding:12px 20px;font-size:16px;">
+    ▶ Watch Ad
+  </button>
+
+  <script>
+    function showAdAndVerify() {
+      show_10589913()
+        .then(() => {
+          alert("✅ Ad completed!\nReturn to Telegram and click 'Claim Reward'.");
+        })
+        .catch(() => {
+          alert("❌ You must complete the ad to receive the reward.");
+        });
+    }
+  </script>
+</body>
+</html>
