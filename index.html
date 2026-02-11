@@ -1,57 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<html>
 <head>
-  <meta charset="UTF-8">
-  <title>LiteFaucetBot – Ad Verification</title>
-  <!-- Monetag Rewarded Interstitial SDK -->
-  <script
-    src="//libtl.com/sdk.js"
-    data-zone="10589913"
-    data-sdk="show_10589913">
-  </script>
 <meta charset="UTF-8">
-<title>LiteFaucet Ad</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
+<title>LiteFaucetBot – Ad Verification</title>
 
-<body style="font-family:Arial; text-align:center; padding:30px">
-  <h2>🔔 Watch Ad to Claim Reward</h2>
-  <p>Please complete the ad to unlock your Litecoin reward.</p>
-  <button onclick="showAdAndVerify()" style="padding:12px 20px;font-size:16px;">
-    ▶ Watch Ad
-  </button>
-  <script>
-    function showAdAndVerify() {
-      show_10589913()
-        .then(() => {
-          alert("✅ Ad completed!\nReturn to Telegram and click 'Claim Reward'.");
-        })
-        .catch(() => {
-          alert("❌ You must complete the ad to receive the reward.");
-        });
-    }
-  </script>
-<body style="text-align:center; font-family:Arial; padding-top:60px;">
-<h2>LiteFaucet Reward</h2>
-<p>Click button below and watch full ad to claim reward.</p>
-<button onclick="watchAd()" 
-style="padding:15px 30px; font-size:18px; background:#28a745; color:white; border:none; border-radius:8px;">
-Watch Ad & Claim
-</button>
-<!-- Monetag SDK -->
+<!-- Monetag Rewarded Interstitial SDK -->
 <script src="https://libtl.com/sdk.js"
         data-zone="10589913"
         data-sdk="show_10589913"></script>
+
+<style>
+body{
+  margin:0;
+  background:#0f172a;
+  font-family:Arial, sans-serif;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  color:white;
+  text-align:center;
+}
+
+.container{
+  background:#1e293b;
+  padding:40px;
+  border-radius:15px;
+  width:90%;
+  max-width:400px;
+  box-shadow:0 0 20px rgba(0,0,0,0.4);
+}
+
+h2{
+  margin-bottom:10px;
+}
+
+p{
+  font-size:14px;
+  color:#cbd5e1;
+}
+
+button{
+  margin-top:20px;
+  padding:15px 25px;
+  font-size:16px;
+  background:#22c55e;
+  border:none;
+  border-radius:10px;
+  color:white;
+  cursor:pointer;
+  transition:0.3s;
+  width:100%;
+}
+
+button:hover{
+  background:#16a34a;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h2>🪙 LiteFaucetBot</h2>
+  <p>Click the button below and complete the ad to unlock your reward.</p>
+  <button onclick="watchAd()">🎁 Watch Ad & Claim</button>
+</div>
+
 <script>
-function watchAd() {
-    show_10589913().then(() => {
-        // Setelah iklan selesai
-        window.location.href = "https://t.me/LiteFaucetBot?start=reward";
-    }).catch(() => {
-        alert("Ad not completed. Please try again.");
-    });
+function watchAd(){
+  show_10589913().then(() => {
+      // Redirect ke Telegram setelah iklan selesai
+      window.location.href = "https://t.me/LiteFaucetBot?start=reward";
+  }).catch(() => {
+      alert("Ad not completed. Please try again.");
+  });
 }
 </script>
+
 </body>
 </html>
