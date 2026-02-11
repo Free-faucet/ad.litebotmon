@@ -1,35 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>LiteFaucetBot – Ad Verification</title>
-
-  <!-- Monetag Rewarded Interstitial SDK -->
-  <script
-    src="//libtl.com/sdk.js"
-    data-zone="10589913"
-    data-sdk="show_10589913">
-  </script>
+<meta charset="UTF-8">
+<title>LiteFaucet Ad</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body style="font-family:Arial; text-align:center; padding:30px">
-  <h2>🔔 Watch Ad to Claim Reward</h2>
-  <p>Please complete the ad to unlock your Litecoin reward.</p>
+<body style="text-align:center; font-family:Arial; padding-top:60px;">
 
-  <button onclick="showAdAndVerify()" style="padding:12px 20px;font-size:16px;">
-    ▶ Watch Ad
-  </button>
+<h2>LiteFaucet Reward</h2>
+<p>Click button below and watch full ad to claim reward.</p>
 
-  <script>
-    function showAdAndVerify() {
-      show_10589913()
-        .then(() => {
-          alert("✅ Ad completed!\nReturn to Telegram and click 'Claim Reward'.");
-        })
-        .catch(() => {
-          alert("❌ You must complete the ad to receive the reward.");
-        });
-    }
-  </script>
+<button onclick="watchAd()" 
+style="padding:15px 30px; font-size:18px; background:#28a745; color:white; border:none; border-radius:8px;">
+Watch Ad & Claim
+</button>
+
+<!-- Monetag SDK -->
+<script src="https://libtl.com/sdk.js"
+        data-zone="10589913"
+        data-sdk="show_10589913"></script>
+
+<script>
+function watchAd() {
+
+    show_10589913().then(() => {
+
+        // Setelah iklan selesai
+        window.location.href = "https://t.me/LiteFaucetBot?start=reward";
+
+    }).catch(() => {
+        alert("Ad not completed. Please try again.");
+    });
+
+}
+</script>
+
 </body>
 </html>
